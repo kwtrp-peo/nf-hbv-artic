@@ -30,3 +30,7 @@ dist/
 CVR1/
 NRW01/
 SP1/
+
+# nextflow generated
+.nextflow*
+work/
