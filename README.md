@@ -33,18 +33,13 @@ cd hbv-fieldbioinfomatics
 conda env create -f environment.yml
 conda activate hbv-artic
 ```
-#### 3. Installing the pipeline:
-```sh
-python setup.py install
-```
-#### 4. Test the pipeline:
+
+#### 3. Test the pipeline:
 ```sh
 artic -v
 ```
 
-
-
 ### Example
 ```sh
-artic minion --circular --medaka --normalise 400 --threads 8 --scheme-directory ~/hbv-fieldbioinfomatics/primerschemes --read-file {}  --medaka-model r1041_e82_400bps_hac_v4.3.0 hbv-600/V2.1.0L output/barcode13
+nextflow run main.nf --fastqDir /path/to/fastq_pass --outDir output_dir_name
 ```
