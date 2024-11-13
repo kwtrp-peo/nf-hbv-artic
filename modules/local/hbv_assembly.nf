@@ -1,7 +1,8 @@
 
-process ARTIC_MINOIN {
-    publishDir "${params.outDir}", pattern: '*.consensus.fasta', mode:'copy'
+process ARTIC_MINION {
+    publishDir path: { "${params.outDir}/assembly" }, mode:'copy', pattern: '*/*'
     tag "assembling $barcordeName"
+    errorStrategy 'ignore'
 
     input:
     path scheme_dir
@@ -12,7 +13,7 @@ process ARTIC_MINOIN {
     each path(rawReadsFastq)
      
     output:
-    path "${sample_name}.consensus.fasta"     , emit: fasta
+    path "${barcordeName}_output/*"     , emit: fasta
 
     script:
     barcordeName = rawReadsFastq.simpleName
@@ -27,7 +28,8 @@ process ARTIC_MINOIN {
 	    --read-file $rawReadsFastq  \\
 	    --medaka-model $medaka_model_str \\
 	    --scheme-name $scheme_name_str \\
-        --scheme-version $scheme_version_str \\
-        $barcordeName
+            --scheme-version $scheme_version_str \\
+            --output ${barcordeName}_output \\
+	    $barcordeName
     """
 }

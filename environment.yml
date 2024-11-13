@@ -206,7 +206,8 @@ dependencies:
   - zipp=3.17.0=pyhd8ed1ab_0
   - zlib=1.2.13=hd590300_5
   - zstd=1.5.5=hfc55251_0
-  - augur=26.0.0=pyhdfd78af_0
+  - nextalign=2.14.0=h9ee0642_2
+  - iqtree=2.3.6=hdbdd923_0
   - nextflow=24.04.4=hdfd78af_0
   
 prefix: /home/ubuntu/miniconda3/envs/hbv-artic
